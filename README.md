@@ -91,14 +91,52 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 **Preguntas**
 
 1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+
+   * Grupo de recursos
+   * Opciones de disponibilidad 
+   * Discos
+   * red virtual
+   * IP publica 
+   * Network interface
+
 2. ¿Brevemente describa para qué sirve cada recurso?
+
+   * Grupo de recursos: Sirver para contener todos los recursos que comparten los mismos permisos y directivas.
+   * Opciones de disponibilidad: Sirve para administrar la disponibilidad de las aplicaciones.
+   * Discos: Almacenaminento de la maquina virtual de Azure.
+   * Red virtual: Permite que muchos tipos de recursos de Azure, como las Máquinas Virtuales Azure (VM), se comuniquen de forma segura entre sí,con el Internet y con redes locales on-premise.
+   * IP publica: Se usa esta direccion IP para comunicar la maquina virtual desde fuera de la red virtual.
+   * Network interface: Una interfaz de red permite que una máquina virtual Azure se comunique con el Internet y con recursos  locales.
+   
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
+
+   * Al ejecutar el comando npm FibonacciApp.js este correra la aplicación, pero cada vez que se cierre la conexión perderemos el proceso corriendo por lo cual es necesario la implmentación de forever nuevamente, ya que este comando nos permite correr el servicio apenas la maquna este prendida.
+   * El *Inbound port rule* sirve para que la maquina virtual que estamos creando se pueda acceder por un puerto determiando, para este caso abrimos la aplicacion con el puerto 3000.
+
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+
+![](images/part1/tabla1.png)
+
+   * La función es iterativa, pero no mantiene en memoria los resultados previos, por lo que, al ejecutar Fibonacci de un número anteriormente calculado, la función vuelve a realizar todo el algoritmo para obtener la respuesta. Incrementando los tiempos de ejecución y consumo de CPU.
+      
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
+
+![](images/part1/consumo1.png)
+
+   * Fibonacci es un algoritmo que consume mucho procesador al momento de calcular numeros grnades, al implementar la función sin ningún tipo memorización o cache y sobre un procesador de bajas especificaciones, el consumo de este se vuelve evidente, como se muestra en la imagen anterior.
+
 6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
-    * Tiempos de ejecución de cada petición.
+   
+    ![](images/part1/postman1.png)
+    
+    * Tiempos de ejecución de cada petición. 
     * Si hubo fallos documentelos y explique.
+      * Tubo un total de 4 fallos, esto se daba escencialmente porque la maquina virtual estaba ocupada cuando se le realizaba la peticion, ya que estaba procesando todavia otra de las petciiones anteriores.    
+    
 7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
+
+    * 
+
 8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
 9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
 10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
