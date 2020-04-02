@@ -131,16 +131,28 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     
     * Tiempos de ejecución de cada petición. 
     * Si hubo fallos documentelos y explique.
+
       * Tubo un total de 4 fallos, esto se daba escencialmente porque la maquina virtual estaba ocupada cuando se le realizaba la peticion, ya que estaba procesando todavia otra de las petciiones anteriores.    
     
 7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
 
-    * 
+    * La maquina que contabamos al principo tenia unos recursos limitados y solo contaba con 1 cpu y 0.75 gb RAM, en cambio cuando cambiamos de tamaño por un  A6 contamos con una memoria RAM de 4gb, por lo que puede tiene una mejor disponibilidad con respecto a las peticiones que se realicen.
 
 8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+
+   * Para este escenario puede ser una buena solución si se desea aumentar la cantidad de peticiones que se pueden realizar concurrentemente al servidor, sin embargo, si se desea aumentar el tiempo de respuesta, se debe buscar una mejor manera de implementar la aplicación FibonacciApp.js.
+
 9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
+ 
+   * Cuando se cambia el tamaño de la VM esta debe de reiniciarse, lo cual conlleva que la aplicación se detenga y su disponibilidad disminuya. Cuando se inicia la VM se debe volver a iniciar el servicio FibonacciApp.
+
 10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+
+   * Si mejoraron, ya que disminuyo el tiempo de respuesta casi un minuto por cada instancia, y esto debido a que cambiamos el tamaño de la maquina por una de 4gb.
+
 11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+
+
 
 ### Parte 2 - Escalabilidad horizontal
 
