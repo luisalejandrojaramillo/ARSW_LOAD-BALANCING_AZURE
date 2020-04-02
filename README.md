@@ -53,6 +53,8 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![](images/part1/part1-vm-3000InboudRule.png)
 
+![](images/part1/consumop1.png)
+
 7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
     * 1000000
     * 1010000
@@ -121,7 +123,7 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
       
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
 
-![](images/part1/consumo1.png)
+![](images/part1/consumop1.png)
 
    * Fibonacci es un algoritmo que consume mucho procesador al momento de calcular numeros grnades, al implementar la función sin ningún tipo memorización o cache y sobre un procesador de bajas especificaciones, el consumo de este se vuelve evidente, como se muestra en la imagen anterior.
 
@@ -147,11 +149,16 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
    * Cuando se cambia el tamaño de la VM esta debe de reiniciarse, lo cual conlleva que la aplicación se detenga y su disponibilidad disminuya. Cuando se inicia la VM se debe volver a iniciar el servicio FibonacciApp.
 
 10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-
+   
    * Si mejoraron, ya que disminuyo el tiempo de respuesta casi un minuto por cada instancia, y esto debido a que cambiamos el tamaño de la maquina por una de 4gb.
 
 11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
+![](images/part1/consumop2.png)
+
+![](images/part1/postman2.png)
+
+   * Se evidencio una mejora en el procesamiento ya que hace mejor uso de la cpu y esto se vio reflejado en los tiempo de respuesta de las peticiones  paralelas y en la grafica del uso de la cpu
 
 
 ### Parte 2 - Escalabilidad horizontal
