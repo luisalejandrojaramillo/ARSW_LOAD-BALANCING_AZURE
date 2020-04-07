@@ -256,16 +256,20 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 Un grupo de backend en Front Door se refiere al conjunto de backends que reciben tráfico similar para su aplicación. Es una agrupación lógica de instancias de aplicaciones en todo el mundo que reciben el mismo tráfico y responden con el comportamiento esperado.
 
 * ¿Cuál es el propósito del *Health Probe*?
-Las peticiones de sonde HTTP/HTTPS a cada backend configurado, son enviadas con el propósito de determinar proximidad y salud de los backends para equilibrar las cargas de las solicitudes de los usuarios.
+   Las peticiones de sonde HTTP/HTTPS a cada backend configurado, son enviadas con el propósito de determinar proximidad y salud de los backends para equilibrar las cargas de las solicitudes de los usuarios.
 
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
-Load Balancing Rule sirve para distribuir el tráfico que llega al front hacia los backend pools.
-Azure maneja 3 tipos de sesión de persistencia:
+   Load Balancing Rule sirve para distribuir el tráfico que llega al front hacia los backend pools.
+   Azure maneja 3 tipos de sesión de persistencia:
    - None: Especifica que las solicitudes sucesivas del mismo cliente pueden ser manejadas por cualquier máquina virtual.
    - Client IP: Las peticiones sucesivas de la misma dirección IP del cliente serán gestionadas por la misma máquina virtual.
    - Client IP and Protocol: Las solicitudes sucesivas de la misma combinación de dirección IP de cliente y protocolo serán tratadas por la misma máquina virtual.
 
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
+   - Una red virtual permite que muchos tipos de recursos de Azure, como las máquinas virtuales de Azure (VM), se comuniquen de manera segura entre sí, Internet y redes locales. VNet es similar a una red tradicional que operaría en su propio centro de datos, pero trae consigo beneficios adicionales de la infraestructura de Azure, como escala, disponibilidad y aislamiento.
+   - Las subredes le permiten segmentar la red virtual en una o más subredes y asignar una parte del espacio de direcciones de la red virtual a cada subred. Luego puede implementar recursos de Azure en una subred específica. Al igual que en una red tradicional, las subredes le permiten segmentar el espacio de direcciones de su red virtual en segmentos que son apropiados para la red interna de la organización. Esto también mejora la eficiencia de asignación de direcciones. Puede proteger los recursos dentro de las subredes utilizando Grupos de seguridad de red.
+   - Un address space especifica un espacio de direcciones IP privado personalizado utilizando direcciones públicas y privadas. Azure asigna a los recursos en una red virtual una dirección IP privada desde el espacio de direcciones que se asigne. Un address range es el rango de direcciones IP que se define a partir del address space.
+
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
 * ¿Cuál es el propósito del *Network Security Group*?
 * Informe de newman 1 (Punto 2)
