@@ -253,7 +253,10 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
    - Un balanceador de carga necesita una IP, esta debe ser pública, ya que actúa como el único punto con el que los clientes interactúan con la aplicación, es el encargado de distribuir el tráfico entre varios nodos disponibles.
 
 * ¿Cuál es el propósito del *Backend Pool*?
+
 * ¿Cuál es el propósito del *Health Probe*?
+Las peticiones de sonde HTTP/HTTPS a cada backend configurado, son enviadas con el propósito de determinar proximidad y salud de los backends para equilibrar las cargas de las solicitudes de los usuarios.
+
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
