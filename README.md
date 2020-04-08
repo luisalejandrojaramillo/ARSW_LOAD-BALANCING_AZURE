@@ -290,17 +290,26 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 
 * Informe de newman 1 (Punto 2)
    - 3 VM con 4 peticiones en paralelo
+   
 ![](images/part2/newman1.png)
+
    - 4 VM con 4 peticiones en paralelo
+   
 ![](images/part2/newman2.png)
+
    - Al ejecutar kas 4 maquinas, el tiempo de ejecucion se reduce notablemnete, ya que tienen un nodo mas. 
    - Rendimiento VM1.
+   
 ![](images/part2/rendimientoVm1.png)
+
    - Rendimiento VM2.
+   
 ![](images/part2/rendimientoVm2.png)
+
    - Como notamos, las maquinas tienen un rendimiento similar. 
 
 * Presente el Diagrama de Despliegue de la solución.
+
 ![](images/part2/diagrama.png)
 
 
